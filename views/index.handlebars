@@ -1,21 +1,25 @@
-<div class="container-fluid bg-warning">
-    <div class="row">
-        <h1 class="text-danger">Eat Da Burger!</h1>
+<div class="container-fluid bg-warning w-75 mx-auto">
+    <div class="row justify-content-center mx-auto py-3">
+        <div class="col-3 mx-auto justify-content-center">
+            <img class="w-100 mx-auto" src="http://clipart-library.com/img1/1241290.png" alt="">
+            <h1 class="text-danger text-center">Eat Da Burger!</h1>
+        </div>
+
     </div>
-    <div class="row">
-        <div class="col-6">
+    <div class="row  d-flex justify-content-evenly py-3">
+        <div class="col-4 bg-light">
             <ul>
                 {{#each burgers}}
                 {{#unless devoured}}
                 <li>
                     {{id}}. {{name}}
-                    <button class="devour" data-id="{{id}}">Devour It!</button>
+                    <button class="devour btn btn-secondary" data-id="{{id}}">Devour It!</button>
                 </li>
                 {{/unless}}
                 {{/each}}
             </ul>
         </div>
-        <div class="col-6">
+        <div class="col-4 bg-light">
             <ul>
                 {{#each burgers}}
                 {{#if devoured}}
@@ -27,15 +31,15 @@
             </ul>
         </div>
     </div>
-    <div class="row">
-        <form id="create-form">
+    <div class="row d-flex  w-25 mx-auto py-3">
+        <form id="create-form justify-content-center">
 
-            <div class="form-group">
-                <label for="burgerName" class="form-label">Burger Name</label>
+            <div class="form-group pb-3">
+                <label for="burgerName" class="form-label fs-5">Burger Name</label>
                 <textarea class="form-control" id="burgerName" rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary align-self-center">Submit</button>
 
         </form>
     </div>

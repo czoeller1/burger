@@ -3,6 +3,10 @@ const burgers = require("../models/burger.js");
 
 const router = express.Router();
 
+router.get("/", (req, res) => {
+  res.redirect("/index");
+});
+
 router.get("/index", (req, res) => {
   burgers.selectAll((data) => {
     const hbsObject = {
@@ -14,17 +18,14 @@ router.get("/index", (req, res) => {
 });
 
 router.post("/api/burgers", (req, res) => {
-  burgers.insertOne(
-    ["name", "devoured"],
-    [req.body.name, req.body.devoured],
-    (result) => {
-      // Send back the ID of the new quote
-      res.json({ id: result.insertId });
-    }
-  );
+  burgers.insertOne(["name"], [req.body.name], (result) => {
+    // Send back the ID of the new quote
+    res.json({ id: result.insertId });
+  });
 });
 
 router.put("/api/burgers/:id", (req, res) => {
+  //console.log("PUT");
   const condition = `id = ${req.params.id}`;
 
   console.log("condition", condition);
