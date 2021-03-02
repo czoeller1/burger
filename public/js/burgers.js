@@ -11,7 +11,9 @@ document.addEventListener("DOMContentLoaded", (event) => {
         //console.log("test");
         // Grabs the id of the element that goes by the name, "id"
         const id = e.target.getAttribute("data-id");
+
         console.log(id);
+
         fetch(`/api/burgers/${id}`, {
           method: "PUT",
           headers: {

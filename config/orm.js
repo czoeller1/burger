@@ -72,6 +72,7 @@ const orm = {
     queryString += " WHERE ";
     queryString += condition;
 
+    // UPDATE burgers SET devoured = true WHERE id = req.params.id
     console.log(queryString);
     connection.query(queryString, (err, result) => {
       if (err) {
